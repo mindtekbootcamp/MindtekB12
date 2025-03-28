@@ -20,7 +20,7 @@ public class Driver {
             if (browser.equals("chrome")) {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.setHeadless(true);
+                options.setHeadless(Boolean.parseBoolean(ConfigReader.getProperty("headless")));
                 driver = new ChromeDriver(options);
             } else if (browser.equals("edge")) {
                 WebDriverManager.edgedriver().setup();

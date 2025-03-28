@@ -9,7 +9,7 @@ public class ConfigReader {
     private static FileInputStream input;
     private static Properties properties;
     static {
-        String path = "C:\\Users\\nelso\\Documents\\GIT\\MindtekB12\\src\\test\\resources\\configurations\\configuration.properties";
+        String path = System.getProperty("user.dir")+"\\src\\test\\resources\\configurations\\configuration.properties";
         try {
             input = new FileInputStream(path);
             properties = new Properties();

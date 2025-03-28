@@ -8,10 +8,10 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 
-    public class elarAppLoginPage {
+    public class ElarAppLoginPage {
         WebDriver driver;
 
-        public elarAppLoginPage(){
+        public ElarAppLoginPage(){
             driver= Driver.getDriver();
             PageFactory.initElements(driver,this);
         }
