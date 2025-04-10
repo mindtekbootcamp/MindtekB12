@@ -2,9 +2,11 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import pages.ElarAppLoginPage;
 import pages.ElarAppNewDriverPage;
+import utilities.BrowserUtils;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -28,6 +30,17 @@ public class newDriverTest {
     @Test
     public void positiveCredentials (){
         addNewDriver();
+
+        ElarAppNewDriverPage elarAppNewDriverPage = new ElarAppNewDriverPage();
+
+        elarAppNewDriverPage.stuffBtn.click();
+        elarAppNewDriverPage.addName.sendKeys("John Doe");
+        elarAppNewDriverPage.localBtn.click();
+        elarAppNewDriverPage.localStateDropBox.click();
+        elarAppNewDriverPage.georgiaState.click();
+
+
+
         driver.findElement(By.xpath("//input[@value='is_staff']")).click();
         driver.findElement(By.xpath("//input[@name='full_name']")).sendKeys("John Doe");
         driver.findElement(By.id("uniforms-0003-0003")).click();
