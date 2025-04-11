@@ -20,7 +20,7 @@ public class NewLocationPage {
     @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement addDriver;
 
-    @FindBy(xpath = "(//span[@class='MuiButton-icon MuiButton-startIcon MuiButton-iconSizeLarge css-coclz'])[1]")
+    @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement searchBtn;
 
     @FindBy(xpath = "(//button[@type='button'])[17]")
@@ -29,6 +29,29 @@ public class NewLocationPage {
     @FindBy(xpath = "//input[@name='name']")
     public WebElement nameHeader;
 
-    @FindBy(xpath = "//div[@class='MuiDataGrid-columnHeaderTitle css-mh3zap']")
+    @FindBy(xpath = "//input[@name='address']")
     public WebElement addressInput;
+
+    @FindBy(xpath = "//input[@name='city']")
+    public WebElement cityInput;
+
+    @FindBy(xpath = "(//div[@aria-haspopup='listbox'])[3]")
+    public WebElement stateInput;
+
+    @FindBy(xpath = "//li[@data-value='TX']")
+    public WebElement texasBtn;
+
+    @FindBy(xpath = "//input[@name='zip_code']")
+    public WebElement zipcodeInput;
+
+    @FindBy(xpath = "//input[@name='apt_suite_company_co']")
+    public WebElement aptSuite;
+
+    @FindBy(xpath = "(//button[@type='button'])[20]")
+    public WebElement createBtn;
+
+    @FindBy(xpath = "(//button[@type='button'])[6]")
+    public WebElement deleteBtn;
+
+
 }
