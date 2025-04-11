@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+import java.security.interfaces.XECPrivateKey;
 
 public class ElarAppNewDriverPage {
     WebDriver driver;
@@ -77,9 +78,94 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//input[@placeholder='Email'])[3]")
     public WebElement inputEmail3;
 
+    @FindBy(xpath = "(//button[@type='button'])[13]")
+    public  WebElement addSkypeBtn;
 
+    @FindBy(xpath = "(//input[@type='string'])[7]")
+    public WebElement inputSkype;
 
+    @FindBy(xpath = "(//button[@type='button'])[14]")
+    public WebElement addSkype2;
 
+    @FindBy(xpath = "(//input[@type='string'])[8]")
+    public WebElement inputSkype2;
 
+    @FindBy(xpath = "(//button[@type='button'])[15]")
+    public WebElement addSkype3;
+
+    @FindBy(xpath = "(//input[@type='string'])[9]")
+    public WebElement inputSkype3;
+
+    @FindBy(xpath = "(//button[@type='button'])[16]")
+    public WebElement addViberBtn;
+
+    @FindBy(xpath = "(//input[@type='string'])[10]")
+    public WebElement inputViberBtn;
+
+    @FindBy(xpath = "(//button[@type='button'])[17]")
+    public WebElement addViber2;
+
+    @FindBy(xpath = "(//input[@type='string'])[11]")
+    public WebElement inputViber2;
+
+    @FindBy(xpath = "(//button[@type='button'])[18]")
+    public WebElement addViber3;
+
+    @FindBy(xpath = "(//input[@type='string'])[12]")
+    public WebElement inputViber3;
+
+    @FindBy(xpath = "(//button[@type='button'])[19]")
+    public WebElement otherBtn;
+
+    @FindBy(xpath = "(//input[@type='string'])[13]")
+    public WebElement inputOther;
+
+    @FindBy(xpath = "(//button[@type='button'])[20]")
+    public WebElement otherBtn2;
+
+    @FindBy(xpath = "(//input[@type='string'])[14]")
+    public WebElement inputOther2;
+
+    @FindBy(xpath = "(//button[@type='button'])[21]")
+    public WebElement otherBtn3;
+
+    @FindBy(xpath = "(//input[@type='string'])[15]")
+    public WebElement inputOther3;
+
+    @FindBy(xpath = "(//button[@type='button'])[22]")
+    public WebElement addressText2;
+
+    @FindBy(xpath = "(//div[@data-field='address'])[3]")
+    public WebElement addAdress2;
+
+    @FindBy(xpath = "(//button[@type='button'])[24]")
+    public WebElement drivingLicenseBtn;
+
+    @FindBy(xpath = "(//button[@type='button'])[41]")
+    public  WebElement datePicked1;
+
+    @FindBy(xpath = "(//button[@type='button'])[25]")
+    public WebElement medicalLicenseBtn;
+
+    @FindBy(xpath = "(//button[@type='button'])[45]")
+    public WebElement datePicked2;
+
+    @FindBy(xpath = "(//input[@type='checkbox'])[3]")
+    public WebElement twicCheckbox;
+
+    @FindBy(xpath = "(//input[@type='text'])[7]")
+    public WebElement ipassNum;
+
+    @FindBy(xpath = "(//input[@type='text'])[8]")
+    public WebElement logbookNum;
+
+    @FindBy(xpath = "(//input[@type='text'])[11]")
+    public WebElement manualID;
+
+    @FindBy(xpath = "(//input[@type='text'])[12]")
+    public WebElement warning;
+
+    @FindBy(xpath = "//textarea[@name='notes']")
+    public WebElement notes;
 
 }

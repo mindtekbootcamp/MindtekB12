@@ -40,20 +40,5 @@ public class newDriverTest {
         elarAppNewDriverPage.georgiaState.click();
 
 
-
-        driver.findElement(By.xpath("//input[@value='is_staff']")).click();
-        driver.findElement(By.xpath("//input[@name='full_name']")).sendKeys("John Doe");
-        driver.findElement(By.id("uniforms-0003-0003")).click();
-        driver.findElement(By.id("uniforms-0003-0004")).click();
-        driver.findElement(By.xpath("//li[@data-value='GA']")).click();
-
-        driver.findElement(By.xpath("(//button[@tabindex='0'])[7]")).click();
-        driver.findElement(By.xpath("//input[@type='tel']")).sendKeys("5497822336");
-        driver.findElement(By.xpath("(//button[@type='button'])[8]")).click();
-        driver.findElement(By.xpath("(//input[@type='tel'])[2]")).sendKeys("4045643216");
-        driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
-        driver.findElement(By.xpath("(//input[@type='tel'])[3]")).sendKeys("5459873654");
-
-
     }
 }
