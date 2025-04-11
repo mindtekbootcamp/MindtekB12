@@ -20,6 +20,11 @@ public class BrowserUtils {
         int randomNum = random.nextInt(999999);
         return firstName + "." + lastName + randomNum + "@fakemail.com";
     }
+    public static String randomAddressGenerator() {
+        Random random = new Random();
+        int randomNum = random.nextInt(999999);
+        return randomNum + " Kingsland st.";
+    }
 
     public static void selectByValue(WebElement element, String value){
         Select select = new Select(element);

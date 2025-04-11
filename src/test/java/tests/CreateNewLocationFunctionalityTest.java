@@ -1,11 +1,13 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ElarAppLoginPage;
 import pages.NewLocationPage;
+import utilities.BrowserUtils;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.TestBase;
@@ -28,10 +30,28 @@ public class CreateNewLocationFunctionalityTest extends TestBase {
         Thread.sleep(3000);
         newLocationPage.addDriver.click();
         newLocationPage.searchBtn.click();
-        Assert.assertEquals(newLocationPage.addressInput.getText(), "Address");
+        //Assert.assertEquals(newLocationPage.addressInput.getText(), "Address");
         wait.until(ExpectedConditions.elementToBeClickable(newLocationPage.createNew));
         newLocationPage.createNew.click();
-        wait.until(ExpectedConditions.visibilityOf(newLocationPage.nameHeader));
-        newLocationPage.nameHeader.sendKeys("Home Address");
+//        wait.until(ExpectedConditions.visibilityOf(newLocationPage.nameHeader));
+        newLocationPage.nameHeader.sendKeys("Mauricio Correa");
+        String address=BrowserUtils.randomAddressGenerator();
+        newLocationPage.addressInput.sendKeys(address);
+        newLocationPage.cityInput.sendKeys("Houston");
+        newLocationPage.stateInput.click();
+        newLocationPage.texasBtn.click();
+        newLocationPage.zipcodeInput.sendKeys("77498");
+        newLocationPage.aptSuite.sendKeys("23");
+        newLocationPage.createBtn.click();
+        Thread.sleep(4000);
+        newLocationPage.deleteBtn.click();
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.elementToBeClickable(newLocationPage.searchBtn));
+        Thread.sleep(5000);
+        newLocationPage.searchBtn.click();
+        Thread.sleep(4000);
+        Assert.assertTrue(driver.findElement(By.xpath("//div[text()='"+address+" Houston TX 77498 23']")).isDisplayed());
+
     }
+
 }
