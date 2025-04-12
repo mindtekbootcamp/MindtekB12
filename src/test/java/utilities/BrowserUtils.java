@@ -1,5 +1,8 @@
 package utilities;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 import java.util.Random;
 
 public class BrowserUtils {
@@ -23,5 +26,9 @@ public class BrowserUtils {
         return randomNum + " Kingsland st.";
     }
 
+    public static void selectByValue(WebElement element, String value){
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
 
 }
