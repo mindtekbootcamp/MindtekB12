@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,6 +53,12 @@ public class NewLocationPage {
 
     @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement deleteBtn;
+
+    @FindBy(xpath = "(//input[@type='text'])[13]")
+    public WebElement addressInput2;
+
+    @FindBy(xpath = "(//button[@type='button'])[16]")
+    public WebElement searchBtn2;
 
 
 }
