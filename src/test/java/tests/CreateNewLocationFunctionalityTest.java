@@ -61,3 +61,4 @@ public class CreateNewLocationFunctionalityTest extends TestBase {
     }
 
 }
+
