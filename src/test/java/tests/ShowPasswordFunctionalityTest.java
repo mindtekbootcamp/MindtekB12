@@ -1,0 +1,26 @@
+package tests;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.ElarAppLoginPage;
+import utilities.ConfigReader;
+import utilities.Driver;
+import utilities.TestBase;
+
+
+public class ShowPasswordFunctionalityTest extends TestBase {
+
+        @Test
+        public void showPasswordFunctionality() {
+            driver = Driver.getDriver();
+            driver.get(ConfigReader.getProperty("ElarAppURL"));
+            ElarAppLoginPage elarAppLoginPage = new ElarAppLoginPage();
+            elarAppLoginPage.userNameInput.sendKeys(ConfigReader.getProperty("ValidUsername"));
+            elarAppLoginPage.passwordInput.sendKeys(ConfigReader.getProperty("ValidPassword"));
+            driver.findElement(By.xpath("//button[@type='button']")).click();
+            Assert.assertTrue(driver.findElement(By.id("login-password")).isDisplayed(), "collaboration900");
+            driver.findElement(By.xpath("//button[@type='button']")).click();
+            Assert.assertTrue(driver.findElement(By.xpath("//input[@placeholder='●●●●●●']")).isDisplayed(), "●●●●●●");
+        }
+    }
