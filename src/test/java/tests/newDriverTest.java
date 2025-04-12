@@ -12,6 +12,7 @@ import utilities.Driver;
 
 public class newDriverTest {
     WebDriver driver;
+    String abs ="Hi";
 
 
     public void addNewDriver(){
