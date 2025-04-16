@@ -31,4 +31,8 @@ public class BrowserUtils {
         select.selectByValue(value);
     }
 
+    public static void scrollDown(){
+
+    }
+
 }
