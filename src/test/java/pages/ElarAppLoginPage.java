@@ -31,6 +31,9 @@ import utilities.Driver;
         public WebElement loginButton;
 
         @FindBy(xpath = "//button[@type='submit']")
+        public WebElement youForgotPswrd;
+
+        @FindBy(xpath = "//button[@type='submit2']")
         public WebElement errorMessage;
 
 }
