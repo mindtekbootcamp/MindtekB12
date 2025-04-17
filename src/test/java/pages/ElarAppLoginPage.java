@@ -29,4 +29,8 @@ import utilities.Driver;
 
         @FindBy(xpath = "//button[@type='submit']")
         public WebElement loginButton;
+
+        @FindBy(xpath = "//button[@type='submit']")
+        public WebElement errorMessage;
+
 }
