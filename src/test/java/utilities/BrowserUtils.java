@@ -35,4 +35,8 @@ public class BrowserUtils {
 
     }
 
+    public static void dragAndDrop(){
+
+    }
+
 }
