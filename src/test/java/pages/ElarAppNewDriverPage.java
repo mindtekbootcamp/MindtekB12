@@ -132,20 +132,26 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//input[@type='string'])[15]")
     public WebElement inputOther3;
 
-    @FindBy(xpath = "(//button[@type='button'])[22]")
-    public WebElement addressText2;
+    @FindBy(xpath = "(//button[@type='button'])[12]")
+    public WebElement addressBtn;
 
-    @FindBy(xpath = "(//div[@data-field='address'])[3]")
-    public WebElement addAdress2;
+    @FindBy(xpath = "(//div[@data-field='address'])[2]")
+    public WebElement addAddress;
 
-    @FindBy(xpath = "(//button[@type='button'])[24]")
+    @FindBy(xpath = "(//button[@type='button'])[14]")
     public WebElement drivingLicenseBtn;
+
+    @FindBy(xpath = "//input[@name='driving_license_exp']")
+    public WebElement drivingLcnInput;
 
     @FindBy(xpath = "(//button[@type='button'])[41]")
     public  WebElement datePicked1;
 
-    @FindBy(xpath = "(//button[@type='button'])[25]")
+    @FindBy(xpath = "(//button[@type='button'])[15]")
     public WebElement medicalLicenseBtn;
+
+    @FindBy(xpath = "//input[@name='medical_certification_exp']")
+    public WebElement medicalLcnInput;
 
     @FindBy(xpath = "(//button[@type='button'])[45]")
     public WebElement datePicked2;
@@ -159,6 +165,12 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//input[@type='text'])[8]")
     public WebElement logbookNum;
 
+    @FindBy(xpath = "//input[@name='logbook_email']")
+    public WebElement logBookEmail;
+
+    @FindBy(xpath = "//input[@name='logbook_password']")
+    public WebElement logBookPswd;
+
     @FindBy(xpath = "(//input[@type='text'])[11]")
     public WebElement manualID;
 
@@ -167,5 +179,8 @@ public class ElarAppNewDriverPage {
 
     @FindBy(xpath = "//textarea[@name='notes']")
     public WebElement notes;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement createBtn;
 
 }
