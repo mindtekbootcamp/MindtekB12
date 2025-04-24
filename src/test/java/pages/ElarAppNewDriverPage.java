@@ -18,7 +18,7 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//p[@class='MuiTypography-root MuiTypography-body1 css-otz8yo'])[5]")
     public WebElement driverPage;
 
-    @FindBy(xpath = "(//button[@tabindex='0'])[5]")
+    @FindBy(xpath = "(//button[@tabindex='0'])[6]")
     public WebElement addNewDriverButton;
 
     public void elarAppNewDriverPage(){
