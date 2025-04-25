@@ -53,6 +53,7 @@ public class CreateNewLocationFunctionalityTest extends TestBase {
         Thread.sleep(5000);
         newLocationPage.searchBtn.click();
         Thread.sleep(4000);
+        
         newLocationPage.addressInput2.sendKeys(address);
         Thread.sleep(2000);
         newLocationPage.searchBtn2.click();

@@ -132,4 +132,69 @@ public class newDriverTest {
         elarAppNewDriverPage.createBtn.click();
 
     }
+    @Test
+    public void negativeCredentials() throws InterruptedException {
+        addNewDriver();
+        JavascriptExecutor jse = ((JavascriptExecutor) driver);
+        ElarAppNewDriverPage elarAppNewDriverPage = new ElarAppNewDriverPage();
+        elarAppNewDriverPage.stuffBtn.click();
+        elarAppNewDriverPage.addName.sendKeys("*++@#$&%");
+        elarAppNewDriverPage.localBtn.click();
+        elarAppNewDriverPage.localStateDropBox.click();
+        elarAppNewDriverPage.georgiaState.click();
+        elarAppNewDriverPage.addPhoneBtn1.click();
+        elarAppNewDriverPage.inputPhone1.sendKeys("177032455");
+        elarAppNewDriverPage.addPhoneBtn2.click();
+        elarAppNewDriverPage.inputPhone2.sendKeys("83277@,222");
+        jse.executeScript("window.scrollBy(0, 200)");
+        elarAppNewDriverPage.addPhoneBtn3.click();
+        elarAppNewDriverPage.inputPhone3.sendKeys("312555888");
+
+        elarAppNewDriverPage.addEmailBtn1.click();
+        elarAppNewDriverPage.inputEmail1.sendKeys("-//////.gmail.com");
+        elarAppNewDriverPage.addEmailBtn2.click();
+        elarAppNewDriverPage.inputEmail2.sendKeys("254gfhdgmail.com");
+        elarAppNewDriverPage.addEmailBtn3.click();
+        elarAppNewDriverPage.inputEmail3.sendKeys("346&*%hotmail.com");
+        jse.executeScript("window.scrollBy(0, 200)");
+        elarAppNewDriverPage.addSkypeBtn.click();
+        elarAppNewDriverPage.inputSkype.sendKeys("--.gmail.com");
+        elarAppNewDriverPage.addSkype2.click();
+        elarAppNewDriverPage.inputSkype2.sendKeys("7775517894");
+        elarAppNewDriverPage.addSkype3.click();
+        elarAppNewDriverPage.inputSkype3.sendKeys("jhonDoe");
+        jse.executeScript("window.scrollBy(0, 200)");
+        elarAppNewDriverPage.addViberBtn.click();
+        elarAppNewDriverPage.inputViberBtn.sendKeys("177032455");
+        elarAppNewDriverPage.addViber2.click();
+        elarAppNewDriverPage.inputViber2.sendKeys("83277@,222");
+        elarAppNewDriverPage.addViber3.click();
+        elarAppNewDriverPage.inputViber3.sendKeys("312555888");
+        jse.executeScript("window.scrollBy(0, 200)");
+        elarAppNewDriverPage.otherBtn.click();
+        elarAppNewDriverPage.inputOther.sendKeys("09283601738");
+//        elarAppNewDriverPage.otherBtn2.click();
+//        elarAppNewDriverPage.inputOther2.sendKeys("7707891478");
+        jse.executeScript("window.scrollBy(0, 200)");
+//        elarAppNewDriverPage.otherBtn3.click();
+//        elarAppNewDriverPage.inputOther3.sendKeys("9283601738");
+        elarAppNewDriverPage.drivingLcnInput.click();
+        elarAppNewDriverPage.drivingLcnInput.sendKeys("04212024");
+        elarAppNewDriverPage.medicalLcnInput.click();
+        elarAppNewDriverPage.medicalLcnInput.sendKeys("04212024");
+        jse.executeScript("window.scrollBy(0, 200)");
+        elarAppNewDriverPage.twicCheckbox.click();
+        elarAppNewDriverPage.ipassNum.sendKeys("#$%@>_&");
+        elarAppNewDriverPage.logbookNum.sendKeys("#$%#@!^&%*");
+        jse.executeScript("window.scrollBy(0, 200)");
+        elarAppNewDriverPage.logBookEmail.sendKeys("^&%#%$@!&^");
+        Thread.sleep(3000);
+        elarAppNewDriverPage.logBookPswd.sendKeys("%^&@#$%!");
+        Thread.sleep(3000);
+        elarAppNewDriverPage.manualID.sendKeys("%&&^#@$&^&");
+        elarAppNewDriverPage.warning.sendKeys("Be careful");
+        elarAppNewDriverPage.notes.sendKeys("He is a good driver");
+        elarAppNewDriverPage.createBtn.click();
+
+    }
 }
