@@ -183,4 +183,19 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement createBtn;
 
+    @FindBy(xpath = "(//button[@type='button'])[16]")
+    public  WebElement goToEditBtn;
+
+    @FindBy(xpath = "(//button[@type='button'])[18]")
+    public WebElement editBtnMain;
+
+    @FindBy(xpath = "//div[@options='[object Object],[object Object],[object Object]']")
+    public WebElement statusBtn;
+
+    @FindBy(xpath = "(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-2h3dw2'])[1]")
+    public WebElement onDutyBtn;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement updateBtn;
+
 }
