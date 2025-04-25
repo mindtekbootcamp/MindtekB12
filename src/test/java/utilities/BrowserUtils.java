@@ -31,12 +31,4 @@ public class BrowserUtils {
         select.selectByValue(value);
     }
 
-    public static void scrollDown(){
-
-    }
-
-    public static void dragAndDrop(){
-
-    }
-
 }
