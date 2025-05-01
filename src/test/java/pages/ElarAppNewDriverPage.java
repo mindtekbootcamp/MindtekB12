@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 import java.security.interfaces.XECPrivateKey;
+import java.util.List;
 
 public class ElarAppNewDriverPage {
     WebDriver driver;
@@ -41,6 +42,9 @@ public class ElarAppNewDriverPage {
 
     @FindBy(xpath = "//li[@data-value='GA']")
     public WebElement georgiaState;
+
+    @FindBy(xpath = "//li[@data-value='NY']")
+    public WebElement newYorkState;
 
     @FindBy(xpath = "(//button[@tabindex='0'])[7]")
     public WebElement addPhoneBtn1;
@@ -138,7 +142,7 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//div[@data-field='address'])[2]")
     public WebElement addAddress;
 
-    @FindBy(xpath = "(//button[@type='button'])[14]")
+    @FindBy(xpath = "(//input[@name='driving_license_exp']/following::div/button[@type='button'])[1]")
     public WebElement drivingLicenseBtn;
 
     @FindBy(xpath = "//input[@name='driving_license_exp']")
@@ -182,5 +186,30 @@ public class ElarAppNewDriverPage {
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement createBtn;
+
+    @FindBy(xpath = "//button[text()='Go to Edit']")
+    public WebElement goToEditButton;
+
+    @FindBy(xpath = "//button[text()='Edit']")
+    public WebElement editButton;
+
+    @FindBy(xpath = "//button[text()='Update']")
+    public WebElement updateButton;
+
+    @FindBy(xpath = "//button[text()='Cancel']")
+    public WebElement cancelButton;
+
+    @FindBy(xpath = "//button[text()='Back to list']")
+    public WebElement backToListButton;
+
+    @FindBy(xpath = "//div[@aria-label]/button[@type='button'][1]")
+    public WebElement allDriversTabButton;
+
+    @FindBy(xpath = "//div[@data-field='id' and @aria-colindex='2']")
+    public List<WebElement> allDriversFromList;
+
+    @FindBy(xpath = "//span[text()='Manual id']//parent:: legend//parent:: fieldset//preceding-sibling::input")
+    public WebElement driverId;
+
 
 }

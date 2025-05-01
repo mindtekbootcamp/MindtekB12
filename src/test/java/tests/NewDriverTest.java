@@ -13,33 +13,17 @@ import pages.ElarAppNewDriverPage;
 import utilities.BrowserUtils;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ElarAppUtility;
 
 import java.util.concurrent.TimeUnit;
 
-public class newDriverTest {
+public class NewDriverTest {
     WebDriver driver;
-
-
-
-    String abs ="Hi";
-
-
-    public void addNewDriver(){
-        driver = Driver.getDriver();
-        driver.get(ConfigReader.getProperty("ElarAppURL"));
-        ElarAppLoginPage elarAppLoginPage = new ElarAppLoginPage();
-        elarAppLoginPage.userNameInput.sendKeys(ConfigReader.getProperty("ValidUsername"));
-        elarAppLoginPage.passwordInput.sendKeys(ConfigReader.getProperty("ValidPassword"));
-        elarAppLoginPage.loginButton.click();
-
-        ElarAppNewDriverPage elarAppNewDriverPage = new ElarAppNewDriverPage();
-        elarAppNewDriverPage.driverPage.click();
-        elarAppNewDriverPage.addNewDriverButton.click();
-    }
 
     @Test
     public void positiveCredentials () throws InterruptedException {
-        addNewDriver();
+        ElarAppUtility elarAppUtility=new ElarAppUtility();
+        elarAppUtility.addNewDriver();
 //        Actions actions = new Actions(driver);
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
 //        jse.executeScript("window.scrollBy(0, 4000)");
@@ -134,7 +118,8 @@ public class newDriverTest {
     }
     @Test
     public void negativeCredentials() throws InterruptedException {
-        addNewDriver();
+        ElarAppUtility elarAppUtility=new ElarAppUtility();
+        elarAppUtility.addNewDriver();
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         ElarAppNewDriverPage elarAppNewDriverPage = new ElarAppNewDriverPage();
         elarAppNewDriverPage.stuffBtn.click();
