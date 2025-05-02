@@ -212,7 +212,7 @@ public class ElarAppNewDriverPage {
     public WebElement driverId;
 
     @FindBy(xpath = "//p[text()='Input must contain only alphanumeric and specific punctuation characters']")
-    public WebElement messageAlert;
+    public WebElement nameErrorMessage;
 
 
 }
