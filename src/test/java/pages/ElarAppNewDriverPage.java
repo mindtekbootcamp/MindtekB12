@@ -211,5 +211,8 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "//span[text()='Manual id']//parent:: legend//parent:: fieldset//preceding-sibling::input")
     public WebElement driverId;
 
+    @FindBy(xpath = "//p[text()='Input must contain only alphanumeric and specific punctuation characters']")
+    public WebElement messageAlert;
+
 
 }
