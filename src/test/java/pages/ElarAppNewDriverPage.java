@@ -64,7 +64,7 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//input[@type='tel'])[3]")
     public WebElement inputPhone3;
 
-    @FindBy(xpath = "(//button[@type='button'])[10]")
+    @FindBy(xpath = "//*[@id='root']/div[1]/main/div[2]/div/div/div/form/button[2]")
     public WebElement addEmailBtn1;
 
     @FindBy(xpath = "//input[@placeholder='Email']")
