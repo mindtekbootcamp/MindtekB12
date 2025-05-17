@@ -19,8 +19,8 @@ public class SearchDriverFuntionality extends TestBase {
     public Object[][] searchFunctionalityNamesTest() {
         return new Object[][]{
                 {"John Lee", "john.lee@gmail.com"},
-                {"Patel Doe", ""},
-                {"Alex Harsh", ""}
+                {"Patel Doe", "patel.doe@gmail.com"},
+                {"Alex Harsh", "alex.harsh@gmail.com"}
         };
     }
     @DataProvider(name = "SearchFunctionalityWithInvalidData")
