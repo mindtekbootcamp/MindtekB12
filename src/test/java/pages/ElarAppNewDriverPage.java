@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 import java.security.interfaces.XECPrivateKey;
+import java.util.List;
 
 public class ElarAppNewDriverPage {
     WebDriver driver;
@@ -42,6 +43,9 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "//li[@data-value='GA']")
     public WebElement georgiaState;
 
+    @FindBy(xpath = "//li[@data-value='NY']")
+    public WebElement newYorkState;
+
     @FindBy(xpath = "(//button[@tabindex='0'])[7]")
     public WebElement addPhoneBtn1;
 
@@ -60,7 +64,7 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//input[@type='tel'])[3]")
     public WebElement inputPhone3;
 
-    @FindBy(xpath = "(//button[@type='button'])[10]")
+    @FindBy(xpath = "//*[@id='root']/div[1]/main/div[2]/div/div/div/form/button[2]")
     public WebElement addEmailBtn1;
 
     @FindBy(xpath = "//input[@placeholder='Email']")
@@ -138,7 +142,7 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "(//div[@data-field='address'])[2]")
     public WebElement addAddress;
 
-    @FindBy(xpath = "(//button[@type='button'])[14]")
+    @FindBy(xpath = "(//input[@name='driving_license_exp']/following::div/button[@type='button'])[1]")
     public WebElement drivingLicenseBtn;
 
     @FindBy(xpath = "//input[@name='driving_license_exp']")
@@ -183,19 +187,32 @@ public class ElarAppNewDriverPage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement createBtn;
 
-    @FindBy(xpath = "(//button[@type='button'])[16]")
-    public  WebElement goToEditBtn;
+    @FindBy(xpath = "//button[text()='Go to Edit']")
+    public WebElement goToEditButton;
 
-    @FindBy(xpath = "(//button[@type='button'])[18]")
-    public WebElement editBtnMain;
+    @FindBy(xpath = "//button[text()='Edit']")
+    public WebElement editButton;
 
-    @FindBy(xpath = "//div[@options='[object Object],[object Object],[object Object]']")
-    public WebElement statusBtn;
+    @FindBy(xpath = "//button[text()='Update']")
+    public WebElement updateButton;
 
-    @FindBy(xpath = "(//li[@class='MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-2h3dw2'])[1]")
-    public WebElement onDutyBtn;
+    @FindBy(xpath = "//button[text()='Cancel']")
+    public WebElement cancelButton;
 
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement updateBtn;
+    @FindBy(xpath = "//button[text()='Back to list']")
+    public WebElement backToListButton;
+
+    @FindBy(xpath = "//div[@aria-label]/button[@type='button'][1]")
+    public WebElement allDriversTabButton;
+
+    @FindBy(xpath = "//div[@data-field='id' and @aria-colindex='2']")
+    public List<WebElement> allDriversFromList;
+
+    @FindBy(xpath = "//span[text()='Manual id']//parent:: legend//parent:: fieldset//preceding-sibling::input")
+    public WebElement driverId;
+
+    @FindBy(xpath = "//p[text()='Input must contain only alphanumeric and specific punctuation characters']")
+    public WebElement nameErrorMessage;
+
 
 }
