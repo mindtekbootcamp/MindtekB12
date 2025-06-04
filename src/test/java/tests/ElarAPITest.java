@@ -4,7 +4,12 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utilities.JDBCUtils;
+import utilities.ConfigReader;
+
+
+import java.util.List;
+
+
 
 import static io.restassured.RestAssured.given;
 
@@ -30,6 +35,7 @@ public class ElarAPITest {
     }
 
     int statusCode;
+    String id;
 
 
     @Test (dataProvider = "createNewDriverValidDataAPITest")
@@ -96,5 +102,56 @@ public class ElarAPITest {
 
         Assert.assertEquals(400,statusCode);
 
+    }
+
+    @Test
+    public void getDriverApiWithSize(){
+        Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
+                .and().header("Content-Type","application/json")
+                .and().header("Cookie","Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5" +
+                        "AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5MDY5" +
+                        "NDYwfQ.A6T0DOfaxyoB6NFh1i9K5i1_A4Z7HBQJtXk2FijbaN4; Refresh=eyJhbGciOiJIUzI1NiIsInR5" +
+                        "cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFs" +
+                        "ZyI6IkhTMjU2In0sImV4cCI6MTc0OTA2OTQ2MH0.jWCMrij9hFoJnVEFtIfi1tIlkXawbUSQxT2jTwrr-H0")
+                .when().get("/v3/drivers?size=5&order_by=id");
+        response.then().log().all();
+        List<Integer> driverIds=response.body().jsonPath().getList("items.id");
+        System.out.println(driverIds);
+
+        Assert.assertTrue(driverIds.size()>=5,driverIds.toString());
+    }
+
+    @Test
+    public void getDriverApiCallStaffTrue(){
+        Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
+                .and().header("Content-Type","application/json")
+                .and().header("Cookie","Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5" +
+                        "AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5MDY5" +
+                        "NDYwfQ.A6T0DOfaxyoB6NFh1i9K5i1_A4Z7HBQJtXk2FijbaN4; Refresh=eyJhbGciOiJIUzI1NiIsInR5" +
+                        "cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFs" +
+                        "ZyI6IkhTMjU2In0sImV4cCI6MTc0OTA2OTQ2MH0.jWCMrij9hFoJnVEFtIfi1tIlkXawbUSQxT2jTwrr-H0")
+                .when().get("/v3/drivers?is_staff=true&order_by=id&size=5");
+        response.then().log().all();
+        List<Boolean> driverStatus=response.body().jsonPath().getList("items.is_staff");
+        System.out.println(driverStatus);
+
+        Assert.assertEquals(response.body().jsonPath().getList("items.is_staff"),driverStatus);
+    }
+
+    @Test
+    public void getDriverApiCallStaffFalse(){
+        Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
+                .and().header("Content-Type","application/json")
+                .and().header("Cookie","Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5" +
+                        "AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5MDY5" +
+                        "NDYwfQ.A6T0DOfaxyoB6NFh1i9K5i1_A4Z7HBQJtXk2FijbaN4; Refresh=eyJhbGciOiJIUzI1NiIsInR5" +
+                        "cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFs" +
+                        "ZyI6IkhTMjU2In0sImV4cCI6MTc0OTA2OTQ2MH0.jWCMrij9hFoJnVEFtIfi1tIlkXawbUSQxT2jTwrr-H0")
+                .when().get("/v3/drivers?is_staff=false&order_by=id&size=5");
+        response.then().log().all();
+        List<Boolean> driverStatus=response.body().jsonPath().getList("items.is_staff");
+        System.out.println(driverStatus);
+
+        Assert.assertEquals(response.body().jsonPath().getList("items.is_staff"),driverStatus);
     }
 }
