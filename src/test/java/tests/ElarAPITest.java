@@ -4,7 +4,12 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utilities.JDBCUtils;
+import utilities.ConfigReader;
+
+
+import java.util.List;
+
+
 
 import static io.restassured.RestAssured.given;
 
@@ -30,6 +35,7 @@ public class ElarAPITest {
     }
 
     int statusCode;
+    String id;
 
 
     @Test (dataProvider = "createNewDriverValidDataAPITest")
@@ -96,5 +102,63 @@ public class ElarAPITest {
 
         Assert.assertEquals(400,statusCode);
 
+    }
+
+    @DataProvider(name = "sizeData")
+    public Object[][] sizeData(){
+        return new Object [][]{
+                {1},
+                {5},
+                {10},
+                {50}
+        };
+    }
+
+    @Test(dataProvider = "sizeData")
+    public void getDriverApiWithSize(int size){
+        Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
+                .and().header("Content-Type","application/json")
+                .and().queryParam("order_by","id")
+                .and().queryParam("size",size)
+                .and().header("Cookie","Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5MTY0OTk5fQ.C6_hVW5RiJUC3vBpEZp-uIyeaXT10dmhePSL9CtfT8c; Refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFsZyI6IkhTMjU2In0sImV4cCI6MTc0OTE2NDk5OX0.4y6bBOdWjYe7WpS8X7QCsV5GRQnGlD7kxbtI7x_joAo")
+                .when().get("/v3/drivers");
+        response.then().log().all();
+        List<Integer> driverIds=response.body().jsonPath().getList("items.id");
+        System.out.println(driverIds);
+
+        Assert.assertEquals(driverIds.size(), size);
+    }
+
+
+    @DataProvider(name = "isStaffData")
+    public Object[][] isStaffData(){
+        return new Object [][]{
+                {"true"},
+                {"false"}
+        };
+    }
+
+    @Test(dataProvider = "isStaffData")
+    public void getDriverApiCallStaffTrue(String isStaff){
+        Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
+                .and().header("Content-Type","application/json")
+                .and().queryParam("is_staff",isStaff)
+                .and().queryParam("order_by","id")
+                .and().queryParam("size","5")
+                .and().header("Cookie","Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
+                        "eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYW" +
+                        "xnIjoiSFMyNTYifSwiZXhwIjoxNzQ5MTY0OTk5fQ.C6_hVW5RiJUC3vBpEZp-uIyeaXT10d" +
+                        "mhePSL9CtfT8c; Refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnN" +
+                        "sYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFsZyI6IkhTMjU2In0sImV4c" +
+                        "CI6MTc0OTE2NDk5OX0.4y6bBOdWjYe7WpS8X7QCsV5GRQnGlD7kxbtI7x_joAo")
+                .when().get("/v3/drivers");
+        response.then().log().all();
+        List<Boolean> driverStatus=response.body().jsonPath().getList("items.is_staff");
+        System.out.println(driverStatus);
+
+        for(Boolean status: driverStatus) {
+            if(isStaff.equals("true")) Assert.assertTrue(status);
+            else if(isStaff.equals("false")) Assert.assertFalse(status);
+        }
     }
 }
