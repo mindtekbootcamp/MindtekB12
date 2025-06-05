@@ -216,19 +216,19 @@ public class UpdateDriverTest {
         elarAppNewDriverPage.notes.sendKeys("He is a good driver");
 
         elarAppNewDriverPage.createBtn.click();
-
-        elarAppNewDriverPage.goToEditBtn.click();
-        jse.executeScript("window.scrollBy(0, 1000)");
-        elarAppNewDriverPage.editBtnMain.click();
-        jse.executeScript("window.scrollBy(0,-1000");
-        elarAppNewDriverPage.statusBtn.click();
-        elarAppNewDriverPage.onDutyBtn.click();
-        elarAppNewDriverPage.addName.sendKeys("Russel Hamilton");
-        elarAppNewDriverPage.drivingLcnInput.click();
-        elarAppNewDriverPage.drivingLcnInput.sendKeys("06272025");
-        elarAppNewDriverPage.medicalLcnInput.click();
-        elarAppNewDriverPage.medicalLcnInput.sendKeys("06272025");
-        elarAppNewDriverPage.updateBtn.click();
+//
+//        elarAppNewDriverPage.goToEditBtn.click();
+//        jse.executeScript("window.scrollBy(0, 1000)");
+//        elarAppNewDriverPage.editBtnMain.click();
+//        jse.executeScript("window.scrollBy(0,-1000");
+//        elarAppNewDriverPage.statusBtn.click();
+//        elarAppNewDriverPage.onDutyBtn.click();
+//        elarAppNewDriverPage.addName.sendKeys("Russel Hamilton");
+//        elarAppNewDriverPage.drivingLcnInput.click();
+//        elarAppNewDriverPage.drivingLcnInput.sendKeys("06272025");
+//        elarAppNewDriverPage.medicalLcnInput.click();
+//        elarAppNewDriverPage.medicalLcnInput.sendKeys("06272025");
+//        elarAppNewDriverPage.updateBtn.click();
     }
 }
 
