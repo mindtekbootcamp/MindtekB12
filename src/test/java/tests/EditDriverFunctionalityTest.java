@@ -40,7 +40,7 @@ public class EditDriverFunctionalityTest extends TestBase {
          Thread.sleep(1000);
      }
 
-    @Test
+    @Test(groups = {"regression"})
     public void editDriverWithValidDataTest() throws InterruptedException {
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         ElarAppDriversPage elarAppDriversPage=new ElarAppDriversPage();
@@ -98,7 +98,7 @@ public class EditDriverFunctionalityTest extends TestBase {
         Assert.assertEquals(expectedName,actualNameInEditPage);
 
     }
-    @Test
+    @Test(groups = {"regression"})
     public void editDriverWithInvalidDataTest() throws InterruptedException {
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         ElarAppNewDriverPage elarAppNewDriverPage = new ElarAppNewDriverPage();
@@ -132,7 +132,7 @@ public class EditDriverFunctionalityTest extends TestBase {
         Assert.assertEquals(expectedMessage,nameErrorMessage);
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void editDriverCancelButtonTest() throws InterruptedException {
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         ElarAppNewDriverPage elarAppNewDriverPage = new ElarAppNewDriverPage();

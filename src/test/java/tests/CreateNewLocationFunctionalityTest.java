@@ -16,7 +16,7 @@ import utilities.TestBase;
 
 public class CreateNewLocationFunctionalityTest extends TestBase {
 
-    @Test
+    @Test(groups = {"regression"})
     public void createNewLocationFunctionality() throws InterruptedException {
         driver= Driver.getDriver();
         driver.get(ConfigReader.getProperty("ElarAppURL"));

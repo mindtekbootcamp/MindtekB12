@@ -30,7 +30,7 @@ public class SearchDriverFuntionality extends TestBase {
         };
     }
 
-    @Test(dataProvider = "SearchFunctionalityNamesTest")
+    @Test(dataProvider = "SearchFunctionalityNamesTest", groups = {"regression"})
     public void searchDriverFunctionalityTest(String driverName,String driverEmail) throws InterruptedException {
         ElarAppDriversPage elarAppDriversPage = new ElarAppDriversPage();
         searchDriver(driverName,driverEmail);
@@ -42,7 +42,7 @@ public class SearchDriverFuntionality extends TestBase {
         Assert.assertEquals(actualDriverName, driverName);
     }
 
-    @Test(dataProvider = "SearchFunctionalityNamesTest")
+    @Test(dataProvider = "SearchFunctionalityNamesTest", groups = {"regression"})
     public void searchDriverFunctionalityByNameTest(String driverName,String driverEmail) throws InterruptedException {
         ElarAppDriversPage elarAppDriversPage = new ElarAppDriversPage();
         Thread.sleep(2000);
@@ -55,7 +55,7 @@ public class SearchDriverFuntionality extends TestBase {
         }
 
     }
-    @Test(dataProvider = "SearchFunctionalityNamesTest")
+    @Test(dataProvider = "SearchFunctionalityNamesTest", groups = {"regression"})
     public void SearchFuntionalityWithEmailTest(String driverName,String driverEmail) throws InterruptedException {
         ElarAppDriversPage elarAppDriversPage = new ElarAppDriversPage();
         Thread.sleep(2000);
@@ -66,7 +66,7 @@ public class SearchDriverFuntionality extends TestBase {
 
 
     }
-    @Test(dataProvider = "SearchFunctionalityWithInvalidData")
+    @Test(dataProvider = "SearchFunctionalityWithInvalidData", groups = {"regression"})
     public void searchDriverWithInvalidEmail(String driverName, String driverInvalidEmail) throws InterruptedException {
         ElarAppDriversPage elarAppDriversPage = new ElarAppDriversPage();
         searchDriver(driverName, driverInvalidEmail);
