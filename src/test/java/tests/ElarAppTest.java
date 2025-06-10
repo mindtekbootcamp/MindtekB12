@@ -26,7 +26,7 @@ public class ElarAppTest extends TestBase {
 
 
 
-    @Test(dataProvider = "loginCredential" )
+    @Test(dataProvider = "loginCredential", groups = {"regression"})
     public void loginCredential(String username, String password, String statusMessage){
         this.username = username;
         this.password = password;

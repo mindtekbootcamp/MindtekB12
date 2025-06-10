@@ -31,7 +31,7 @@ public class DriverPaginationFunctionalityTest extends TestBase {
         };
     }
 
-    @Test(dataProvider = "paginationTest")
+    @Test(dataProvider = "paginationTest", groups = {"regression"})
     public void driverPaginationFunctionality(int numberPerPage) throws InterruptedException {
 
         driver = Driver.getDriver();

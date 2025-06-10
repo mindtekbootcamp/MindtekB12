@@ -37,7 +37,7 @@ public class NewDriverTest {
         elarAppNewDriverPage.addNewDriverButton.click();
     }
 
-    @Test
+    @Test(groups = {"regression"})
     public void positiveCredentials () throws InterruptedException {
         addNewDriver();
 //        Actions actions = new Actions(driver);

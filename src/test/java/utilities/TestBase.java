@@ -12,11 +12,12 @@ public class TestBase {
      * it gives access to the driver, before method and after method.
      */
 
-    @BeforeMethod(groups = {"testbase"})
+    @BeforeMethod(groups = {"regression"})
     public void setup(){
         driver = Driver.getDriver();
     }
-    @AfterMethod(groups = {"testbase"})
+
+    @AfterMethod(groups = {"regression"})
     public void teardown() throws InterruptedException {
         driver.quit();
         Thread.sleep(2000);
