@@ -40,7 +40,7 @@ public class EditDriverFunctionalityTest extends TestBase {
          Thread.sleep(1000);
      }
 
-    @Test
+    @Test(groups = {"regression"})
     public void editDriverWithValidDataTest() throws InterruptedException {
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         ElarAppDriversPage elarAppDriversPage=new ElarAppDriversPage();

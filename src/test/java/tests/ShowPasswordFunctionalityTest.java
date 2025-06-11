@@ -11,7 +11,7 @@ import utilities.TestBase;
 
 public class ShowPasswordFunctionalityTest extends TestBase {
 
-        @Test
+        @Test(groups = {"regression"})
         public void showPasswordFunctionality() {
             driver = Driver.getDriver();
             driver.get(ConfigReader.getProperty("ElarAppURL"));

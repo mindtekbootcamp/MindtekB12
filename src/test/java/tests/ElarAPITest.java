@@ -43,7 +43,7 @@ public class ElarAPITest {
     String token="Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5MTY0OTk5fQ.C6_hVW5RiJUC3vBpEZp-uIyeaXT10dmhePSL9CtfT8c; Refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFsZyI6IkhTMjU2In0sImV4cCI6MTc0OTE2NDk5OX0.4y6bBOdWjYe7WpS8X7QCsV5GRQnGlD7kxbtI7x_joAo";
 
 
-    @Test (dataProvider = "createNewDriverValidDataAPITest")
+    @Test (dataProvider = "createNewDriverValidDataAPITest",groups = {"regression"})
     public void createDriverAPIValidDataTest(String fullName, String DLExpDate, String medExpDate){
 
         DriverRequest driverRequest=new DriverRequest();
@@ -87,7 +87,7 @@ public class ElarAPITest {
 
     }
 
-    @Test (dataProvider = "createNewDriverInvalidDataAPITest")
+    @Test (dataProvider = "createNewDriverInvalidDataAPITest",groups = {"regression"})
     public void createDriverAPIInValidDataTest(String fullName, String DLExpDate, String medExpDate){
         Response response = given().baseUri("https://api.sandbox.elarbridges.com/services/elar-saas/api")
                 .and().header("Content-Type","application/json")
@@ -130,7 +130,7 @@ public class ElarAPITest {
         };
     }
 
-    @Test(dataProvider = "sizeData")
+    @Test(dataProvider = "sizeData",groups = {"regression"})
     public void getDriverApiWithSize(int size){
         Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
                 .and().header("Content-Type","application/json")
@@ -154,7 +154,7 @@ public class ElarAPITest {
         };
     }
 
-    @Test(dataProvider = "isStaffData")
+    @Test(dataProvider = "isStaffData",groups = {"regression"})
     public void getDriverApiCallStaffTrue(String isStaff){
         Response response = given().baseUri(ConfigReader.getProperty("ElarAppAPIBaseURL"))
                 .and().header("Content-Type","application/json")
