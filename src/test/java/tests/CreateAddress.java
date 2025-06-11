@@ -107,5 +107,27 @@ public class CreateAddress {
         Assert.assertEquals(422, statuscode);
 
     }
+       @DataProvider(name="validateSizeData")
+       public Object [][] validateSizeData(){
+        return new Object[][]{
+                {-1},
+                {101}
 
+        };
+       }
+
+    @Test(dataProvider = "validateSizeData")
+    public void validateSizeData(int size){
+
+        Response response = given().baseUri("https://api.sandbox.elarbridges.com/services/elar-saas/api")
+                .and().header("Content-Type", "application/json")
+                .and().header("Accept", "application/json")
+                .and().header("Cookie", token)
+                .when().post("/v3/addresses");
+        response.then().log().all();
+
+
+
+
+    }
 }
