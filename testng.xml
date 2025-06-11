@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="regressionTests" >
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.BookingApiTest" />
+            <class name="tests.ElarAPITest" />
+            <class name="tests.NewDriverTest" />
+            <class name="tests.CreateNewLocationFunctionalityTest" />
+            <class name="tests.DriverPaginationFunctionalityTest" />
+            <class name="tests.EditDriverFunctionalityTest" />
+            <class name="tests.ElarAppTest" />
+            <class name="tests.SearchDriverFuntionality" />
+            <class name="tests.ShowPasswordFunctionality" />
+            <class name="tests.ShowPasswordFunctionalityTest" />
+        </classes>
+    </test>
+
+</suite>
