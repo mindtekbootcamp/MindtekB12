@@ -1,10 +1,9 @@
 package pojo;
 
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-import java.util.Objects;
 @Getter
 @Setter
 public class DriverResponse {

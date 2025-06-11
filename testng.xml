@@ -10,6 +10,7 @@
         <classes>
             <class name="tests.BookingAPITest"/>
             <class name="tests.ElarAPITest"/>
+            <class name="tests.NewDriverTest"/>
             <class name="tests.CreateNewLocationFunctionalityTest"/>
             <class name="tests.DriverPaginationFunctionalityTest"/>
             <class name="tests.EditDriverFunctionalityTest"/>

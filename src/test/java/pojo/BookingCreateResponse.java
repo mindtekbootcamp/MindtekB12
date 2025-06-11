@@ -9,4 +9,5 @@ public class BookingCreateResponse {
 
     private Integer bookingid;
     private BookingRequest booking;
+
 }

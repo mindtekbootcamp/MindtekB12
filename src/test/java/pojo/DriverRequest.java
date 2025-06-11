@@ -2,12 +2,13 @@ package pojo;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bouncycastle.est.LimitedSource;
 
 import java.util.List;
+
 @Getter
 @Setter
 public class DriverRequest {
+
     private String full_name;
     private String logbook_email;
     private String logbook_password;
@@ -21,6 +22,5 @@ public class DriverRequest {
     private List<Contact> contacts_skype;
     private List<Contact> contacts_viber;
     private List<Contact> contacts_other;
-
 
 }

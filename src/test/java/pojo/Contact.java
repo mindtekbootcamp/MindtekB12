@@ -10,4 +10,5 @@ public class Contact {
     private String name;
     private String value;
     private String type;
+
 }

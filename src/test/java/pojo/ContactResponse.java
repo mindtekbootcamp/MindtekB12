@@ -12,4 +12,5 @@ public class ContactResponse {
     private String name;
     private String value;
     private String type;
+
 }
