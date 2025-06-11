@@ -18,6 +18,7 @@
             <class name="tests.SearchDriverFuntionality"/>
             <class name="tests.ShowPasswordFunctionality"/>
             <class name="tests.ShowPasswordFunctionalityTest"/>
+            <class name="tests.CreateAddress"/>
         </classes>
     </test>
 </suite>
