@@ -5,8 +5,8 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Setter
 @Getter
+@Setter
 public class DriverRequest {
 
     private String full_name;
@@ -17,12 +17,10 @@ public class DriverRequest {
     private Boolean twic;
     private String driving_license_exp;
     private String medical_certification_exp;
-    private List<Contact> contact_phone;
-    private List<Contact> contact_email;
-    private List<Contact> contact_skype;
-    private List<Contact> contact_viber;
-    private List<Contact> contact_other;
-
-
+    private List<Contact> contacts_phone;
+    private List<Contact> contacts_email;
+    private List<Contact> contacts_skype;
+    private List<Contact> contacts_viber;
+    private List<Contact> contacts_other;
 
 }

@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BookingRequest {
-
     private String firstname;
     private String lastname;
     private Integer totalprice;

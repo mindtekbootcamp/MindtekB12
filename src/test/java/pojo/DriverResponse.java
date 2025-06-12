@@ -1,9 +1,8 @@
 package pojo;
 
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -23,4 +22,5 @@ public class DriverResponse {
     private List<ContactResponse> contacts_skype;
     private List<ContactResponse> contacts_viber;
     private List<ContactResponse> contacts_other;
+
 }

@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import pages.ElarAppLoginPage;
 import pages.ElarAppNewDriverPage;
@@ -19,5 +20,7 @@ public class ElarAppUtility extends TestBase {
         elarAppNewDriverPage.driverPage.click();
         elarAppNewDriverPage.addNewDriverButton.click();
     }
+
+
 
 }

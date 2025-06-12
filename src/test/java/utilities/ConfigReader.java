@@ -9,7 +9,8 @@ public class ConfigReader {
     private static FileInputStream input;
     private static Properties properties;
     static {
-        String path = System.getProperty("user.dir")+"\\src\\test\\resources\\configurations\\configuration.properties";
+//        String path = System.getProperty("user.dir")+"/src/test/resources/configurations/configuration.properties"; // Windows
+        String path = System.getProperty("user.dir")+"/src/test/resources/configurations/configuration.properties";  // Mac
         try {
             input = new FileInputStream(path);
             properties = new Properties();

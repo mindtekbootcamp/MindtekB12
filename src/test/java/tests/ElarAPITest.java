@@ -23,7 +23,6 @@ public class ElarAPITest {
     public Object[][] createNewDriverValidDataAPITest(){
         return new Object[][]{
                 {"Patelister Harsher", "2026-05-05", "2026-05-05"}
-
         };
     }
 
@@ -40,19 +39,13 @@ public class ElarAPITest {
 
     int statusCode;
     String id;
-    String token="Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-            "eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlI" +
-            "joiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5NjA0NTA5fQ." +
-            "1vzEi1E8mzG6GioYljQH0wX_c7rs9le1hpHBObxMZDQ; Refresh=eyJhbGc" +
-            "iOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlay" +
-            "IsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFsZyI6IkhTMjU2In0sImV4c" +
-            "CI6MTc0OTYwNDUwOX0.Dnm0_gHTueVjQZZKEUtcHlilDBGZowDqkOO13ECH62Q";
+    String token="Access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiQWNjZXNzIiwiYWxnIjoiSFMyNTYifSwiZXhwIjoxNzQ5NjA0NTA5fQ.1vzEi1E8mzG6GioYljQH0wX_c7rs9le1hpHBObxMZDQ; Refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhcnNsYW5AbWluZHRlayIsImhlYWRlciI6eyJ0eXBlIjoiUmVmcmVzaCIsImFsZyI6IkhTMjU2In0sImV4cCI6MTc0OTYwNDUwOX0.Dnm0_gHTueVjQZZKEUtcHlilDBGZowDqkOO13ECH62Q";
 
 
-    @Test (dataProvider = "createNewDriverValidDataAPITest",groups = {"regression"})
+    @Test (dataProvider = "createNewDriverValidDataAPITest", groups = {"regression"})
     public void createDriverAPIValidDataTest(String fullName, String DLExpDate, String medExpDate){
 
-        DriverRequest driverRequest = new DriverRequest();
+        DriverRequest driverRequest=new DriverRequest();
         driverRequest.setFull_name(fullName);
         driverRequest.setLogbook_email("");
         driverRequest.setLogbook_password("");
@@ -61,32 +54,34 @@ public class ElarAPITest {
         driverRequest.setTwic(false);
         driverRequest.setDriving_license_exp(DLExpDate);
         driverRequest.setMedical_certification_exp(medExpDate);
-        driverRequest.setContact_phone(new ArrayList<>());
-        driverRequest.setContact_email(new ArrayList<>());
-        driverRequest.setContact_skype(new ArrayList<>());
-        driverRequest.setContact_viber(new ArrayList<>());
-        driverRequest.setContact_other(new ArrayList<>());
+        driverRequest.setContacts_phone(new ArrayList<>());
+        driverRequest.setContacts_skype(new ArrayList<>());
+        driverRequest.setContacts_viber(new ArrayList<>());
+        driverRequest.setContacts_other(new ArrayList<>());
+        driverRequest.setContacts_email(new ArrayList<>());
 
-        Gson gson = new Gson();
-        String driverRequestJson = gson.toJson(driverRequest);
-
+        // SERIALIZATION
+        Gson gson=new Gson();
+        String driverRequestJson=gson.toJson(driverRequest);
 
         Response response = given().baseUri("https://api.sandbox.elarbridges.com/services/elar-saas/api")
                 .and().header("Content-Type","application/json")
                 .and().header("Cookie",token)
-                .and().body(driverRequestJson)
+                .and().body(driverRequestJson) // SERIALIZATION -> Java Object - Json
                 .when().post("/v3/drivers");
         response.then().log().all();
         statusCode = response.statusCode();
 
-        // DriverResponse driverResponse = response.body().as(DriverResponse.class);
+        // take response body and convert to Java object -- DESERIALIZATION
 
+//        DriverResponse driverResponse = response.body().as(DriverResponse.class); // Json body -> Java Object (DriverResponse)
         DriverResponse driverResponse = gson.fromJson(response.getBody().asString(), DriverResponse.class);
+
         System.out.println(driverResponse.getId());
         System.out.println(driverResponse.getUuid());
 
         Assert.assertEquals(200,statusCode);
-        Assert.assertEquals(fullName,driverResponse.getFull_name());
+        Assert.assertEquals(fullName, driverResponse.getFull_name());
 
     }
 

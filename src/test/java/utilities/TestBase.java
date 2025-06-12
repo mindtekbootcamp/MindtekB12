@@ -16,8 +16,8 @@ public class TestBase {
     public void setup(){
         driver = Driver.getDriver();
     }
-    @AfterMethod(groups = {"regression"})
 
+    @AfterMethod(groups = {"regression"})
     public void teardown() throws InterruptedException {
         driver.quit();
         Thread.sleep(2000);
